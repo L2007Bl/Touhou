@@ -53,8 +53,15 @@ begin
     begin
       if ranx2 >= ranx3 then
       begin
-        ran := ran - 1;
-        ranx3 := ranx3 + 1;
+        if ran >= 60 then
+        begin
+          ran := ran - 1;
+          ranx3 := ranx3 + 1;
+        end;
+        if ran < 60 then
+        begin
+          ranx3 := ranx3 + 1;
+        end;
       end;
       if ranx2 < ranx3 then
       begin
@@ -66,8 +73,15 @@ begin
     begin
       if ranx2 >= ranx3 then
       begin
-        ran := ran + 1;
-        ranx3 := ranx3 + 1;
+        if ran <= 430 then
+        begin
+          ran := ran + 1;
+          ranx3 := ranx3 + 1;
+        end;
+        if ran > 430 then
+        begin
+          ranx3 := ranx3 + 1;
+        end;
       end;
       if ranx2 < ranx3 then
       begin
