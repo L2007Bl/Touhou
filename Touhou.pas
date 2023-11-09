@@ -1,7 +1,7 @@
 ﻿uses GraphABC;
 var
   kw, ka, ks, kd, obiect: boolean;
-  px, py, width, heigh, score, oy, ran : integer;
+  px, py, width, heigh, score, oy, ran, ranx1, ranx2, ranx3 : integer;
 procedure KeyDown(k: integer);
 begin
   if k = VK_W then kw := True;
@@ -26,6 +26,9 @@ begin
   score := 0;
   randomize();
   ran := random(60, 430);
+  ranx1 := random(1, 2);
+  ranx2 := random(5, 10);
+  ranx3 := 1;
   SetFontSize(24);
   lockDrawing();
   SetWindowTitle('Touhou     by Blanari Laurentiu');
@@ -45,6 +48,32 @@ begin
       score := score + 1;
       oy := 11;
       ran := random(60, 430);
+    end;
+    if ranx1 = 1 then
+    begin
+      if ranx2 >= ranx3 then
+      begin
+        ran := ran - 1;
+        ranx3 := ranx3 + 1;
+      end;
+      if ranx2 < ranx3 then
+      begin
+        ranx1 := random(1, 2);
+        ranx3 := 1;
+      end;
+    end;
+    if ranx1 = 2 then
+    begin
+      if ranx2 >= ranx3 then
+      begin
+        ran := ran + 1;
+        ranx3 := ranx3 + 1;
+      end;
+      if ranx2 < ranx3 then
+      begin
+        ranx1 := random(1, 2);
+        ranx3 := 1;
+      end;
     end;
     OnKeyDown := KeyDown;
     OnKeyUp := KeyUp;
