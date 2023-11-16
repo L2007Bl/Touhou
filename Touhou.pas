@@ -1,6 +1,6 @@
 ﻿uses GraphABC;
 var
-  kw, ka, ks, kd, obiect: boolean;
+  kw, ka, ks, kd, obiect : boolean;
   px, py, width, heigh, score, oy, ran, ranx1, ranx2, ranx3, ranx4 : integer;
 procedure KeyDown(k: integer);
 begin
@@ -56,13 +56,13 @@ begin
       begin
         if ran >= 60 then
         begin
-          if ranx4 < 2 then
+          if ranx4 < 4 then
           begin
             ranx4 := ranx4 + 1;
           end;
-          if ranx4 = 2 then
+          if ranx4 = 4 then
           begin
-            ran := ran - 1;
+            if oy < 590 then ran := ran - 1;
             ranx4 := 1;
           end;
           ranx3 := ranx3 + 1;
@@ -84,13 +84,13 @@ begin
       begin
         if ran <= 430 then
         begin
-          if ranx4 < 2 then
+          if ranx4 < 4 then
           begin
             ranx4 := ranx4 + 1;
           end;
-          if ranx4 = 2 then
+          if ranx4 = 4 then
           begin
-            ran := ran + 1;
+            if oy < 590 then ran := ran + 1;
             ranx4 := 1;
           end;
           ranx3 := ranx3 + 1;
